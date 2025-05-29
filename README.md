@@ -32,14 +32,14 @@ Distributed using a rolling release model, which means builds hosted here may be
 
 If you would like to contribute a package to UcnHub, follow the packaging structure below:
 
-``
+```
 Org.yourname.yourpackage/
 
 ├── org.yourname.yourpackage.ucn-manifest
 
 ├── your-package-folder/
 
-``
+```
 
 📦 Packaging Steps:
 
