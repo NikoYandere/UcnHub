@@ -1,6 +1,6 @@
 ---
 
-UcnHub (a.k.a. Ucn-repo)
+# UcnHub (a.k.a. Ucn-repo)
 
 Official Community Repository for Ucn Package Manager
 Maintained by NikoYandere, creator of Ucn
@@ -106,7 +106,22 @@ A manifest file named org.yourname.yourpackage.ucn-manifest.
 
 A folder containing your package's contents.
 
+📓 Manifest Example
 
+```
+UCN PACKAGE MANAGER MANIFEST--
+
+name:org.yourname.yourpackage
+
+version:version here 
+
+developer:name-here
+
+publisher:name here
+
+exec:insert-command-here
+
+```
 
 3. Compress everything into a .zip archive.
 
@@ -122,17 +137,4 @@ org.yourname.yourpackage.ucn
 
 
 > 🧠 Reminder: The Ucn Package Manager and UcnHub are part of a niche software distribution system. If you share a .ucn package here, your contribution will be greatly appreciated by the community!
----
-> 📓 Manifest Example
 
-UCN PACKAGE MANAGER MANIFEST--
-
-name:org.yourname.yourpackage
-
-version:version here 
-
-developer:name-here
-
-publisher:name here
-
-exec:insert-command-here
