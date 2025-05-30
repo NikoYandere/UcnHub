@@ -1,334 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UcnHub - Universal Packages for All</title>
-    <link rel="icon" href="favicon.png" type="image/png" />
-    <style>
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #2c2541;
-        color: #ffffff;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .container {
-        width: 100%;
-        max-width: 800px;
-        padding: 20px;
-        box-sizing: border-box;
-      }
-      .header-main {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        margin-bottom: 20px;
-        width: 100%;
-      }
-
-      .ucnhub-title {
-        font-size: 3.5em;
-        font-weight: bold;
-        color: #e0e0e0;
-        line-height: 1;
-      }
-
-      .nav-tabs {
-        display: flex;
-        margin-bottom: 25px;
-        background-color: #4a3f6b;
-        border-radius: 8px;
-        padding: 5px;
-        flex-wrap: wrap;
-        width: 100%;
-      }
-
-      .nav-tab {
-        padding: 10px 20px;
-        margin: 5px;
-        background-color: #5e5086;
-        color: #c7c7c7;
-        border-radius: 6px;
-        cursor: pointer;
-        text-align: center;
-        flex-grow: 1;
-      }
-
-      .nav-tab.active {
-        background-color: #8a79b7;
-        color: #ffffff;
-        font-weight: bold;
-      }
-
-      .featured-app-banner {
-        background-color: #3b3258;
-        border-radius: 12px;
-        padding: 25px;
-        margin-bottom: 30px;
-        display: flex;
-        align-items: center;
-        gap: 25px;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .banner-image-container img {
-        width: 100px;
-        height: 100px;
-        border-radius: 10px;
-        object-fit: cover;
-      }
-
-      .banner-text-content h4 {
-        font-size: 0.9em;
-        font-weight: 600;
-        color: #b0a6d9;
-        margin: 0 0 5px 0;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
-      .banner-text-content h2 {
-        font-size: 1.8em;
-        font-weight: bold;
-        margin: 0 0 10px 0;
-        color: #ffffff;
-      }
-
-      .banner-text-content p {
-        font-size: 1em;
-        color: #d0d0d0;
-        margin: 0 0 15px 0;
-        line-height: 1.6;
-      }
-
-      .banner-action-button {
-        background-color: #7e6cb8;
-        color: white;
-        border: none;
-        padding: 10px 18px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 0.95em;
-        font-weight: 500;
-        transition: background-color 0.3s ease;
-      }
-
-      .banner-action-button:hover {
-        background-color: #6a589d;
-      }
-
-      .app-list {
-        width: 100%;
-      }
-
-      .app-entry {
-        background-color: #3b3258;
-        border-radius: 8px;
-        margin-bottom: 15px;
-      }
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UcnHub — Universal Packages for all distros </title>
+  <meta name="description" content="UcnHub is an app store offering universal packages for all Linux operating systems.">
+  <meta name="keywords" content="app store, UcnHub, universal packages, Linux">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #2c2541;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      width: 100%;
+      max-width: 800px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .header-main {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .ucnhub-title {
+      font-size: 3.5em;
+      font-weight: bold;
+      color: #e0e0e0;
+      line-height: 1;
+      white-space: nowrap;
+      text-align: center;
+    }
+    .nav-tabs {
+      display: flex;
+      margin-bottom: 25px;
+      background-color: #4a3f6b;
+      border-radius: 8px;
+      padding: 5px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .nav-tab {
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #5e5086;
+      color: #c7c7c7;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      flex-grow: 1;
+    }
+    .nav-tab.active {
+      background-color: #8a79b7;
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .featured-app-banner {
+      background-color: #3b3258;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .banner-image-container img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .banner-text-content h4 {
+      font-size: 0.9em;
+      font-weight: 600;
+      color: #b0a6d9;
+      margin: 0 0 5px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .banner-text-content h2 {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin: 0 0 10px 0;
+      color: #ffffff;
+    }
+    .banner-text-content p {
+      font-size: 1em;
+      color: #d0d0d0;
+      margin: 0 0 15px 0;
+      line-height: 1.6;
+    }
+    .banner-action-button {
+      background-color: #7e6cb8;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95em;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+    .banner-action-button:hover {
+      background-color: #6a589d;
+    }
+    .app-list {
+      width: 100%;
+    }
+    .app-entry {
+      background-color: #3b3258;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      cursor: pointer;
+    }
+    .app-header:hover {
+      background-color: #342c52;
+    }
+    .app-identity {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .launcher-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 6px;
+    }
+    .launcher-name {
+      font-size: 1.3em;
+      font-weight: 500;
+    }
+    .app-meta-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .launcher-size {
+      font-size: 1em;
+      color: #b0b0b0;
+    }
+    .dropdown-toggle {
+      font-size: 1em;
+      color: #c7c7c7;
+      font-weight: 500;
+      transition: transform 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .dropdown-toggle.open {
+      transform: rotate(180deg);
+    }
+    .command-section-collapsible {
+      background-color: #322a4e;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    }
+    .command-section-collapsible.show {
+      max-height: 800px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .command-section-collapsible h3 {
+      font-size: 1.2em;
+      margin: 0 0 8px 0;
+      color: #e0e0e0;
+    }
+    .command-section-collapsible p {
+      font-size: 0.95em;
+      color: #d0d0d0;
+      margin: 0 0 15px 0;
+      line-height: 1.5;
+    }
+    .command-block {
+      background-color: #211c30;
+      padding: 15px;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.95em;
+      color: #a7d1a7;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      margin-bottom: 10px;
+    }
+    .copy-button {
+      background-color: #6251a4;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background-color 0.3s ease;
+    }
+    .copy-button:hover {
+      background-color: #7967c2;
+    }
+    @media (max-width: 600px) {
       .app-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 20px;
-        cursor: pointer;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
       }
-
-      .app-header:hover {
-        background-color: #342c52;
-      }
-
-      .app-identity {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .launcher-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 6px;
-      }
-
-      .launcher-name {
-        font-size: 1.3em;
-        font-weight: 500;
-      }
-
-      .app-meta-actions {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .launcher-size {
-        font-size: 1em;
-        color: #b0b0b0;
-      }
-
       .dropdown-toggle {
-        font-size: 1em;
-        color: #c7c7c7;
-        font-weight: 500;
-        transition: transform 0.3s ease;
-        /* Ensure it's clickable on touch devices */
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-      }
-
-      .dropdown-toggle.open {
-        transform: rotate(180deg);
-      }
-
-      .command-section-collapsible {
-        background-color: #322a4e;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-      }
-
-      .command-section-collapsible.show {
-        max-height: 800px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-      }
-
-      .command-section-collapsible h3 {
-        font-size: 1.2em;
-        margin: 0 0 8px 0;
-        color: #e0e0e0;
-      }
-
-      .command-section-collapsible p {
-        font-size: 0.95em;
-        color: #d0d0d0;
-        margin: 0 0 15px 0;
-        line-height: 1.5;
-      }
-
-      .command-block {
-        background-color: #211c30;
-        padding: 15px;
-        border-radius: 6px;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 0.95em;
-        color: #a7d1a7;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        margin-bottom: 10px;
-      }
-
-      .copy-button {
-        background-color: #6251a4;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
         font-size: 0.9em;
-        transition: background-color 0.3s ease;
       }
-
-      .copy-button:hover {
-        background-color: #7967c2;
-      }
-
-      @media (max-width: 600px) {
-        .app-header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 8px;
-        }
-        .dropdown-toggle {
-          font-size: 0.9em;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header class="header-main">
-        <div class="ucnhub-title">UcnHub — Universal Packages for all</div>
-      </header>
-      <section class="featured-app-banner">
-        <div class="banner-image-container">
-          <img src="https://nikoyandere.github.io/logo.png" alt="Yanix Launcher Banner" />
-        </div>
-        <div class="banner-text-content">
-          <h4>FEATURED APP</h4>
-          <h2>Yanix Launcher</h2>
-          <p>Yanix Launcher, now in Ucn Package Manager, better than ever.</p>
-          <button class="banner-action-button" onclick="scrollToAppAndOpen('yanixLauncherEntry')">
-            View Details
-          </button>
-        </div>
-      </section>
-      <nav class="nav-tabs">
-        <div class="nav-tab active">Games</div>
-        <div class="nav-tab">Coming Soon</div>
-        <div class="nav-tab">Coming Soon</div>
-      </nav>
-      <main class="app-list">
-        <div class="app-entry" id="yanixLauncherEntry">
-          <div class="app-header" onclick="toggleSection(this)">
-            <div class="app-identity">
-              <img src="https://nikoyandere.github.io/logo.png" alt="Yanix Launcher Icon" class="launcher-icon" />
-              <span class="launcher-name">Yanix Launcher</span>
-            </div>
-            <div class="app-meta-actions">
-              <span class="launcher-size">1 MB</span>
-              <span class="dropdown-toggle">View Description ▼</span>
-            </div>
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header-main">
+      <h1 class="ucnhub-title">UcnHub — Universal Packages for all</h1>
+    </header>
+    <section class="featured-app-banner">
+      <div class="banner-image-container">
+        <img src="https://nikoyandere.github.io/logo.png" alt="Yanix Launcher Banner">
+      </div>
+      <div class="banner-text-content">
+        <h4>FEATURED APP</h4>
+        <h2>Yanix Launcher</h2>
+        <p>Yanix Launcher, now in Ucn Package Manager, better than ever.</p>
+        <button class="banner-action-button" onclick="scrollToAppAndOpen('yanixLauncherEntry')">
+          View Details
+        </button>
+      </div>
+    </section>
+    <nav class="nav-tabs">
+      <div class="nav-tab active" role="tab" aria-selected="true">Apps</div>
+      <div class="nav-tab" role="tab" aria-selected="false">Games</div>
+      <div class="nav-tab" role="tab" aria-selected="false">Coming Soon</div>
+    </nav>
+    <main class="app-list">
+      <div class="app-entry" id="yanixLauncherEntry">
+        <div class="app-header" onclick="toggleSection(this)">
+          <div class="app-identity">
+            <img src="https://nikoyandere.github.io/logo.png" alt="Yanix Launcher Icon" class="launcher-icon">
+            <span class="launcher-name">Yanix Launcher</span>
           </div>
-          <section class="command-section-collapsible">
-            <h3>Description</h3>
-            <p>
-              The Yanix Launcher is an independent initiative created to run Yandere Simulator on Linux operating systems. It is neither supported nor developed by YandereDev — The Yanix Launcher runs the game using WINE, and requires WINE 8.0 or newer for proper functionality. While most major display bugs like fullscreen issues have been fixed in the Unity 6 Build, some letter display problems persist. To fix the missing letters, try running
-              <code>winetricks allfonts</code> in your terminal. This installs common Windows fonts which may resolve the issue. Keep in mind that full resolution of these problems would still require YandereDev's investigation, as it's beyond the scope of the launcher.
-            </p>
-            <h3>Copy command</h3>
-            <div class="command-block" id="commandTextYanix">
-ucn add-repo https://nikoyandere.github.io/ucn-repo && ucn install --from-repos org.nikoyandere.yanix-launcher
-            </div>
-            <button class="copy-button" onclick="copyCommandContent('commandTextYanix')">Copy Command</button>
-          </section>
+          <div class="app-meta-actions">
+            <span class="launcher-size">1 MB</span>
+            <span class="dropdown-toggle">View Description ▼</span>
+          </div>
         </div>
-      </main>
-    </div>
-    <script>
-      function toggleSection(header) {
-        const arrow = header.querySelector('.dropdown-toggle');
-        const section = header.nextElementSibling;
-        if (!arrow || !section) return;
-        section.classList.toggle('show');
-        // Toggle the 'open' class for rotation
-        arrow.classList.toggle('open');
-        arrow.textContent = section.classList.contains('show') ? 'Hide Description ▲' : 'View Description ▼';
-      }
-      function copyCommandContent(id) {
-        const txt = document.getElementById(id).innerText;
-        navigator.clipboard.writeText(txt);
-      }
-
-      function scrollToAppAndOpen(entryId) {
-        const entry = document.getElementById(entryId);
-        if (!entry) return;
-        entry.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(() => {
-          const header = entry.querySelector('.app-header');
-          if (header) toggleSection(header);
-        }, 500);
-      }
-    </script>
-  </body>
+        <section class="command-section-collapsible">
+          <h3>Description</h3>
+          <p>
+            The Yanix Launcher is an independent initiative created to run Yandere Simulator on Linux operating systems. It is neither supported nor developed by YandereDev — The Yanix Launcher runs the game using WINE, and requires WINE 8.0 or newer for proper functionality. While most major display bugs like fullscreen issues have been fixed in the Unity 6 Build, some letter display problems persist. To fix the missing letters, try running
+            <code>winetricks allfonts</code> in your terminal. This installs common Windows fonts which may resolve the issue. Keep in mind that full resolution of these problems would still require YandereDev's investigation, as it's beyond the scope of the launcher.
+          </p>
+          <h3>Copy command</h3>
+          <div class="command-block" id="commandTextYanix">
+ucn add-repo https://nikoyandere.github.io/ucn-repo && ucn install --from-repos org.nikoyandere.yanix-launcher
+          </div>
+          <button class="copy-button" aria-label="Copy install command" onclick="copyCommandContent('commandTextYanix')">Copy Command</button>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script>
+    function toggleSection(header) {
+      const arrow = header.querySelector('.dropdown-toggle');
+      const section = header.nextElementSibling;
+      if (!arrow || !section) return;
+      section.classList.toggle('show');
+      arrow.classList.toggle('open');
+      arrow.textContent = section.classList.contains('show') ? 'Hide Description ▲' : 'View Description ▼';
+    }
+    function copyCommandContent(id) {
+      const txt = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(txt).then(() => {
+        alert('Command copied to clipboard!');
+      });
+    }
+    function scrollToAppAndOpen(entryId) {
+      const entry = document.getElementById(entryId);
+      if (!entry) return;
+      entry.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        const header = entry.querySelector('.app-header');
+        if (header) toggleSection(header);
+      }, 500);
+    }
+  </script>
+</body>
 </html>
