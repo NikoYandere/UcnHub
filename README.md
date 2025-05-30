@@ -45,7 +45,7 @@ A folder containing your package's contents.
 📓 Manifest Example
 
 ```
-UCN PACKAGE MANAGER MANIFEST--
+--UCN PACKAGE MANAGER MANIFEST--
 
 name:org.yourname.yourpackage
 
