@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UcnHub — Universal Packages for all distros </title>
-  <meta name="description" content="UcnHub is an app store offering universal packages for all Linux operating systems.">
-  <meta name="keywords" content="app store, UcnHub, universal packages, Linux">
-  <meta name="robots" content="index, follow">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UcnHub — Universal Packages for all distros</title>
+  <meta name="description" content="UcnHub is an app store offering universal packages for all Linux operating systems." />
+  <meta name="keywords" content="app store, UcnHub, universal packages, Linux" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="favicon.png" type="image/png" />
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,6 +39,22 @@
       white-space: nowrap;
       text-align: center;
     }
+    .featured-app-banner {
+      background-color: #3b3258;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 30px;
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .featured-app-banner img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: contain;
+    }
     .nav-tabs {
       display: flex;
       margin-bottom: 25px;
@@ -62,57 +78,6 @@
       background-color: #8a79b7;
       color: #ffffff;
       font-weight: bold;
-    }
-    .featured-app-banner {
-      background-color: #3b3258;
-      border-radius: 12px;
-      padding: 25px;
-      margin-bottom: 30px;
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .banner-image-container img {
-      width: 100px;
-      height: 100px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-    .banner-text-content h4 {
-      font-size: 0.9em;
-      font-weight: 600;
-      color: #b0a6d9;
-      margin: 0 0 5px 0;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .banner-text-content h2 {
-      font-size: 1.8em;
-      font-weight: bold;
-      margin: 0 0 10px 0;
-      color: #ffffff;
-    }
-    .banner-text-content p {
-      font-size: 1em;
-      color: #d0d0d0;
-      margin: 0 0 15px 0;
-      line-height: 1.6;
-    }
-    .banner-action-button {
-      background-color: #7e6cb8;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.95em;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-    }
-    .banner-action-button:hover {
-      background-color: #6a589d;
     }
     .app-list {
       width: 100%;
@@ -234,17 +199,7 @@
       <h1 class="ucnhub-title">UcnHub — Universal Packages for all</h1>
     </header>
     <section class="featured-app-banner">
-      <div class="banner-image-container">
-        <img src="https://nikoyandere.github.io/logo.png" alt="Yanix Launcher Banner">
-      </div>
-      <div class="banner-text-content">
-        <h4>FEATURED APP</h4>
-        <h2>Yanix Launcher</h2>
-        <p>Yanix Launcher, now in Ucn Package Manager, better than ever.</p>
-        <button class="banner-action-button" onclick="scrollToAppAndOpen('yanixLauncherEntry')">
-          View Details
-        </button>
-      </div>
+      <img src="ucnhub.gif" alt="UcnHub Animated" />
     </section>
     <nav class="nav-tabs">
       <div class="nav-tab active" role="tab" aria-selected="true">Apps</div>
@@ -255,7 +210,7 @@
       <div class="app-entry" id="yanixLauncherEntry">
         <div class="app-header" onclick="toggleSection(this)">
           <div class="app-identity">
-            <img src="https://nikoyandere.github.io/logo.png" alt="Yanix Launcher Icon" class="launcher-icon">
+            <img src="https://nikoyandere.github.io/logo.png" alt="Yanix Launcher Icon" class="launcher-icon" />
             <span class="launcher-name">Yanix Launcher</span>
           </div>
           <div class="app-meta-actions">
