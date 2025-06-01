@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,30 +14,87 @@
       color: #ffffff;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
     .container {
       width: 100%;
       max-width: 800px;
       padding: 20px;
       box-sizing: border-box;
+      margin: 0 auto;
     }
+    /* Setup modal styles */
+    .setup-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #7e6cb8;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95em;
+      font-weight: 500;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    .setup-button:hover { background-color: #6a589d; }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal-content {
+      background-color: #322a4e;
+      border-radius: 8px;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      font-family: 'Courier New', Courier, monospace;
+      color: #a7d1a7;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      max-height: 80%;
+    }
+    .modal-content header {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: #e0e0e0;
+    }
+    .close-button {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #c7c7c7;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    /* Header and title */
     .header-main {
       display: flex;
       justify-content: center;
+      margin-top: 60px;
       margin-bottom: 20px;
-      width: 100%;
     }
     .ucnhub-title {
       font-size: 3.5em;
       font-weight: bold;
       color: #e0e0e0;
       line-height: 1;
-      white-space: nowrap;
       text-align: center;
+      word-wrap: break-word;
     }
+    /* Featured banner */
     .featured-app-banner {
       background-color: #3b3258;
       border-radius: 12px;
@@ -55,6 +111,7 @@
       border-radius: 12px;
       object-fit: contain;
     }
+    /* Nav tabs */
     .nav-tabs {
       display: flex;
       margin-bottom: 25px;
@@ -79,9 +136,8 @@
       color: #ffffff;
       font-weight: bold;
     }
-    .app-list {
-      width: 100%;
-    }
+    /* App list */
+    .app-list { width: 100%; }
     .app-entry {
       background-color: #3b3258;
       border-radius: 8px;
@@ -94,69 +150,31 @@
       padding: 15px 20px;
       cursor: pointer;
     }
-    .app-header:hover {
-      background-color: #342c52;
-    }
-    .app-identity {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .launcher-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 6px;
-    }
-    .launcher-name {
-      font-size: 1.3em;
-      font-weight: 500;
-    }
-    .app-meta-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .launcher-size {
-      font-size: 1em;
-      color: #b0b0b0;
-    }
+    .app-header:hover { background-color: #342c52; }
+    .app-identity { display: flex; align-items: center; gap: 15px; }
+    .launcher-icon { width: 48px; height: 48px; border-radius: 6px; }
+    .launcher-name { font-size: 1.3em; font-weight: 500; }
+    .app-meta-actions { display: flex; align-items: center; gap: 20px; }
+    .launcher-size { font-size: 1em; color: #b0b0b0; }
     .dropdown-toggle {
       font-size: 1em;
       color: #c7c7c7;
       font-weight: 500;
       transition: transform 0.3s ease;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
     }
-    .dropdown-toggle.open {
-      transform: rotate(180deg);
-    }
+    .dropdown-toggle.open { transform: rotate(180deg); }
     .command-section-collapsible {
       background-color: #322a4e;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 20px;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
-      overflow: hidden;
       max-height: 0;
-      transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
     }
-    .command-section-collapsible.show {
-      max-height: 800px;
-      padding-top: 15px;
-      padding-bottom: 15px;
-    }
-    .command-section-collapsible h3 {
-      font-size: 1.2em;
-      margin: 0 0 8px 0;
-      color: #e0e0e0;
-    }
-    .command-section-collapsible p {
-      font-size: 0.95em;
-      color: #d0d0d0;
-      margin: 0 0 15px 0;
-      line-height: 1.5;
-    }
+    .command-section-collapsible.show { max-height: 800px; }
+    .command-section-collapsible h3 { color: #e0e0e0; }
+    .command-section-collapsible p, code { color: #d0d0d0; }
     .command-block {
       background-color: #211c30;
       padding: 15px;
@@ -165,7 +183,6 @@
       font-size: 0.95em;
       color: #a7d1a7;
       white-space: pre-wrap;
-      word-wrap: break-word;
       margin-bottom: 10px;
     }
     .copy-button {
@@ -178,33 +195,28 @@
       font-size: 0.9em;
       transition: background-color 0.3s ease;
     }
-    .copy-button:hover {
-      background-color: #7967c2;
-    }
-    @media (max-width: 600px) {
-      .app-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      .dropdown-toggle {
-        font-size: 0.9em;
-      }
-    }
+    .copy-button:hover { background-color: #7967c2; }
   </style>
 </head>
 <body>
-  <div class="container">
+  <button class="setup-button" onclick="openModal()">Setup</button>
+  <div class="modal-overlay" id="setupModal">
+    <div class="modal-content">
+      <button class="close-button" onclick="closeModal()">×</button>
+      <header id="modalTitle">Setup for Debian</header>
+      <div id="modalCommands"></div>
+    </div>
+  </div>  <div class="container">
     <header class="header-main">
       <h1 class="ucnhub-title">UcnHub — Universal Packages for all</h1>
     </header>
     <section class="featured-app-banner">
-      <img src="ucnhub.gif" alt="UcnHub Animated" />
+      <img src="ucnhub.gif" alt="UcnHub Animation" />
     </section>
     <nav class="nav-tabs">
-      <div class="nav-tab active" role="tab" aria-selected="true">Apps</div>
-      <div class="nav-tab" role="tab" aria-selected="false">Games</div>
-      <div class="nav-tab" role="tab" aria-selected="false">Coming Soon</div>
+      <div class="nav-tab active">Apps</div>
+      <div class="nav-tab">Games</div>
+      <div class="nav-tab">Coming Soon</div>
     </nav>
     <main class="app-list">
       <div class="app-entry" id="yanixLauncherEntry">
@@ -220,43 +232,47 @@
         </div>
         <section class="command-section-collapsible">
           <h3>Description</h3>
-          <p>
-            The Yanix Launcher is an independent initiative created to run Yandere Simulator on Linux operating systems. It is neither supported nor developed by YandereDev — The Yanix Launcher runs the game using WINE, and requires WINE 8.0 or newer for proper functionality. While most major display bugs like fullscreen issues have been fixed in the Unity 6 Build, some letter display problems persist. To fix the missing letters, try running
-            <code>winetricks allfonts</code> in your terminal. This installs common Windows fonts which may resolve the issue. Keep in mind that full resolution of these problems would still require YandereDev's investigation, as it's beyond the scope of the launcher.
-          </p>
-          <h3>Copy command</h3>
-          <div class="command-block" id="commandTextYanix">
-ucn add-repo https://nikoyandere.github.io/UcnHub && ucn install --from-repos org.nikoyandere.yanix-launcher
-          </div>
-          <button class="copy-button" aria-label="Copy install command" onclick="copyCommandContent('commandTextYanix')">Copy Command</button>
+          <p>The Yanix Launcher runs Yandere Simulator on Linux using WINE. Requires WINE 8.0+. To fix missing letters: <code>winetricks allfonts</code>.</p>
+          <h3>Install Commands</h3>
+          <div class="command-block" id="commandTextYanix">ucn add-repo https://nikoyandere.github.io/UcnHub && ucn install --from-repos org.nikoyandere.yanix-launcher</div>
+          <button class="copy-button" onclick="copyCommandContent('commandTextYanix')">Copy Install Command</button>
         </section>
       </div>
     </main>
-  </div>
-  <script>
+  </div>  <script>
+    const commandsTemplate = name =>
+      `git clone https://github.com/NikoYandere/ucn-package-manager
+cd ucn-package-manager
+sudo mv ucn-package-manager.py /usr/local/bin/ucn && chmod +x /usr/local/bin/ucn
+
+# test packages:
+ucn add-repo https://nikoyandere.github.io/UcnHub
+ucn install --from-repos org.nikoyandere.yanix-launcher`;
+
+    function openModal() {
+      document.getElementById('setupModal').classList.add('show');
+      setTimeout(closeModal, 10000);
+      setModalContent('Debian');
+    }
+    function setModalContent(distro) {
+      document.getElementById('modalTitle').textContent = `Setup for ${distro}`;
+      document.getElementById('modalCommands').textContent = commandsTemplate(distro);
+    }
+    function closeModal() {
+      document.getElementById('setupModal').classList.remove('show');
+    }
+
     function toggleSection(header) {
       const arrow = header.querySelector('.dropdown-toggle');
       const section = header.nextElementSibling;
       if (!arrow || !section) return;
       section.classList.toggle('show');
-      arrow.classList.toggle('open');
       arrow.textContent = section.classList.contains('show') ? 'Hide Description ▲' : 'View Description ▼';
     }
+
     function copyCommandContent(id) {
-      const txt = document.getElementById(id).textContent;
-      navigator.clipboard.writeText(txt).then(() => {
-        alert('Command copied to clipboard!');
-      });
+      navigator.clipboard.writeText(document.getElementById(id).textContent)
+        .then(() => alert('Copied to clipboard!'));
     }
-    function scrollToAppAndOpen(entryId) {
-      const entry = document.getElementById(entryId);
-      if (!entry) return;
-      entry.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(() => {
-        const header = entry.querySelector('.app-header');
-        if (header) toggleSection(header);
-      }, 500);
-    }
-  </script>
-</body>
+  </script></body>
 </html>
