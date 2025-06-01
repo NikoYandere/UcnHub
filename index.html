@@ -37,15 +37,16 @@
       color: #e0e0e0;
       line-height: 1;
     }
+
+
     .featured-app-banner {
       position: relative;
       background: linear-gradient(90deg, #ff002b, #ff006e);
       border-radius: 16px;
       padding: 0;
       margin-bottom: 30px;
-      width: 100%;
-      max-width: 800px;
-      height: 250px; /* altura fixa para o banner */
+      width: 1920px;
+      height: 1080px;
       box-sizing: border-box;
       display: flex;
       justify-content: center;
@@ -56,7 +57,7 @@
     .featured-app-banner img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* garante que a imagem preencha o banner */
+      object-fit: cover;
       border-radius: 12px;
     }
     .featured-app-banner .arrow {
@@ -279,6 +280,7 @@
 </head>
 <body>
   <button class="setup-btn" onclick="openModal()">Setup</button>
+
   <div class="modal-overlay" id="setupModal">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal()">×</button>
