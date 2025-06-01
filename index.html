@@ -38,15 +38,15 @@
       line-height: 1;
     }
 
-
+  
     .featured-app-banner {
       position: relative;
       background: linear-gradient(90deg, #ff002b, #ff006e);
       border-radius: 16px;
-      padding: 0;
       margin-bottom: 30px;
-      width: 1920px;
-      height: 1080px;
+      width: 100%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
       box-sizing: border-box;
       display: flex;
       justify-content: center;
@@ -271,7 +271,7 @@
     }
     .close-modal:hover { color: white; }
 
-    @media(max-width:500px) {
+    @media (max-width: 500px) {
       .ucnhub-title { font-size: 2.5em; }
       .distro-buttons { flex-direction: column; }
       .distro-buttons button { margin: 5px 0; }
@@ -280,7 +280,6 @@
 </head>
 <body>
   <button class="setup-btn" onclick="openModal()">Setup</button>
-
   <div class="modal-overlay" id="setupModal">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal()">×</button>
@@ -319,13 +318,13 @@
             <span class="launcher-name">Yanix Launcher</span>
           </div>
           <div class="app-meta-actions">
-            <span class="launcher-size">1 MB</span>
+            <span class="launcher-size">1 MB</span>
             <span class="dropdown-toggle">View Description ▼</span>
           </div>
         </div>
         <section class="command-section-collapsible">
           <h3>Description</h3>
-          <p>The Yanix Launcher runs Yandere Simulator on Linux via WINE 8.0+. Fullscreen bugs fixed in Unity 6 build; for missing letters run <code>winetricks allfonts</code>. Further fixes require upstream support.</p>
+          <p>The Yanix Launcher runs Yandere Simulator on Linux via WINE 8.0+. Fullscreen bugs fixed in Unity 6 build; for missing letters run <code>winetricks allfonts</code>. Further fixes require upstream support.</p>
           <h3>Install Command</h3>
           <div class="command-block" id="commandTextYanix">
 ucn add-repo https://nikoyandere.github.io/UcnHub  
