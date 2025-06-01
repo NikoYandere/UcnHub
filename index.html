@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,92 +9,33 @@
   <meta name="robots" content="index, follow" />
   <link rel="icon" href="favicon.png" type="image/png" />
   <style>
+    /* Base */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #2c2541;
       color: #ffffff;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
     }
     .container {
       width: 100%;
       max-width: 800px;
       padding: 20px;
       box-sizing: border-box;
-      margin: 0 auto;
     }
-    /* Setup modal styles */
-    .setup-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #7e6cb8;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.95em;
-      font-weight: 500;
-      z-index: 1000;
-      transition: background-color 0.3s ease;
-    }
-    .setup-button:hover { background-color: #6a589d; }
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-    .modal-overlay.show { display: flex; }
-    .modal-content {
-      background-color: #322a4e;
-      border-radius: 8px;
-      padding: 20px;
-      width: 90%;
-      max-width: 400px;
-      font-family: 'Courier New', Courier, monospace;
-      color: #a7d1a7;
-      white-space: pre-wrap;
-      overflow-y: auto;
-      max-height: 80%;
-    }
-    .modal-content header {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-      color: #e0e0e0;
-    }
-    .close-button {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background: none;
-      border: none;
-      color: #c7c7c7;
-      font-size: 1.2em;
-      cursor: pointer;
-    }
-    /* Header and title */
-    .header-main {
-      display: flex;
-      justify-content: center;
-      margin-top: 60px;
-      margin-bottom: 20px;
-    }
+    .header-main { text-align: center; margin-bottom: 20px; }
     .ucnhub-title {
-      font-size: 3.5em;
+      font-size: 3em;
       font-weight: bold;
       color: #e0e0e0;
       line-height: 1;
-      text-align: center;
-      word-wrap: break-word;
     }
+
     /* Featured banner */
     .featured-app-banner {
       background-color: #3b3258;
@@ -111,6 +53,7 @@
       border-radius: 12px;
       object-fit: contain;
     }
+
     /* Nav tabs */
     .nav-tabs {
       display: flex;
@@ -128,14 +71,16 @@
       color: #c7c7c7;
       border-radius: 6px;
       cursor: pointer;
-      text-align: center;
       flex-grow: 1;
+      text-align: center;
+      user-select: none;
     }
     .nav-tab.active {
       background-color: #8a79b7;
       color: #ffffff;
       font-weight: bold;
     }
+
     /* App list */
     .app-list { width: 100%; }
     .app-entry {
@@ -157,72 +102,151 @@
     .app-meta-actions { display: flex; align-items: center; gap: 20px; }
     .launcher-size { font-size: 1em; color: #b0b0b0; }
     .dropdown-toggle {
-      font-size: 1em;
-      color: #c7c7c7;
-      font-weight: 500;
+      font-size: 1em; color: #c7c7c7; font-weight: 500;
       transition: transform 0.3s ease;
+      user-select: none;
     }
     .dropdown-toggle.open { transform: rotate(180deg); }
     .command-section-collapsible {
       background-color: #322a4e;
-      padding: 20px;
+      padding: 0 20px;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
-      max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease-out;
+      max-height: 0;
+      transition: max-height 0.4s ease-out, padding 0.4s ease-out;
     }
-    .command-section-collapsible.show { max-height: 800px; }
-    .command-section-collapsible h3 { color: #e0e0e0; }
-    .command-section-collapsible p, code { color: #d0d0d0; }
+    .command-section-collapsible.show {
+      max-height: 800px;
+      padding: 15px 20px;
+    }
+    .command-section-collapsible h3 {
+      font-size: 1.2em; margin: 0 0 8px; color: #e0e0e0;
+    }
+    .command-section-collapsible p {
+      font-size: 0.95em; color: #d0d0d0; margin: 0 0 15px; line-height: 1.5;
+    }
     .command-block {
       background-color: #211c30;
-      padding: 15px;
-      border-radius: 6px;
+      padding: 15px; border-radius: 6px;
       font-family: 'Courier New', Courier, monospace;
-      font-size: 0.95em;
-      color: #a7d1a7;
-      white-space: pre-wrap;
+      font-size: 0.95em; color: #a7d1a7;
+      white-space: pre-wrap; word-wrap: break-word;
       margin-bottom: 10px;
     }
     .copy-button {
-      background-color: #6251a4;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 0.9em;
-      transition: background-color 0.3s ease;
+      background-color: #6251a4; color: white;
+      border: none; padding: 10px 15px;
+      border-radius: 5px; cursor: pointer;
+      font-size: 0.9em; transition: background-color 0.3s ease;
     }
     .copy-button:hover { background-color: #7967c2; }
+
+    /* Setup button */
+    .setup-btn {
+      position: fixed; top: 20px; left: 20px;
+      background-color: #7e6cb8; color: white;
+      border: none; padding: 10px 18px;
+      border-radius: 6px; cursor: pointer;
+      font-size: 0.95em; font-weight: 500;
+      z-index: 1000;
+    }
+    .setup-btn:hover { background-color: #6a589d; }
+
+    /* Modal overlay */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); display: none;
+      justify-content: center; align-items: center;
+      z-index: 999;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .modal-overlay.show { display: flex; }
+
+    /* Modal content */
+    .modal-content {
+      background: #3b3258; border-radius: 8px;
+      padding: 20px; max-width: 400px; width: 100%;
+      box-sizing: border-box; text-align: center;
+      position: relative;
+    }
+    .modal-content h2 {
+      margin-top: 0; color: #e0e0e0;
+    }
+    .distro-buttons {
+      display: flex; justify-content: space-around; margin: 15px 0;
+    }
+    .distro-buttons button {
+      background-color: #5e5086; color: #c7c7c7;
+      border: none; padding: 10px 12px;
+      border-radius: 6px; cursor: pointer;
+      flex: 1; margin: 0 5px;
+    }
+    .distro-buttons button:hover {
+      background-color: #8a79b7; color: white;
+    }
+    .modal-commands {
+      background: #211c30; color: #a7d1a7;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9em; padding: 15px;
+      border-radius: 6px; text-align: left;
+      white-space: pre-wrap; word-wrap: break-word;
+      display: none;
+    }
+    .close-modal {
+      position: absolute; top: 10px; right: 10px;
+      background: none; border: none; font-size: 1.2em;
+      color: #c7c7c7; cursor: pointer;
+    }
+    .close-modal:hover { color: white; }
+
+    /* Responsive tweaks */
+    @media (max-width: 500px) {
+      .ucnhub-title { font-size: 2.5em; }
+      .distro-buttons { flex-direction: column; }
+      .distro-buttons button { margin: 5px 0; }
+    }
   </style>
 </head>
 <body>
-  <button class="setup-button" onclick="openModal()">Setup</button>
+  <!-- Setup button -->
+  <button class="setup-btn" onclick="openModal()">Setup</button>
+
+  <!-- Modal -->
   <div class="modal-overlay" id="setupModal">
     <div class="modal-content">
-      <button class="close-button" onclick="closeModal()">×</button>
-      <header id="modalTitle">Setup for Debian</header>
-      <div id="modalCommands"></div>
+      <button class="close-modal" onclick="closeModal()">×</button>
+      <h2>Setup UcnHub</h2>
+      <div class="distro-buttons">
+        <button onclick="showCommands('Debian')">Debian</button>
+        <button onclick="showCommands('Fedora')">Fedora</button>
+        <button onclick="showCommands('Arch')">Arch</button>
+      </div>
+      <div class="modal-commands" id="modalCommands"></div>
     </div>
-  </div>  <div class="container">
+  </div>
+
+  <div class="container">
     <header class="header-main">
       <h1 class="ucnhub-title">UcnHub — Universal Packages for all</h1>
     </header>
+
     <section class="featured-app-banner">
-      <img src="ucnhub.gif" alt="UcnHub Animation" />
+      <img src="ucnhub.gif" alt="UcnHub Animated" />
     </section>
+
     <nav class="nav-tabs">
-      <div class="nav-tab active">Apps</div>
-      <div class="nav-tab">Games</div>
-      <div class="nav-tab">Coming Soon</div>
+      <div class="nav-tab active" role="tab">Apps</div>
+      <div class="nav-tab" role="tab">Games</div>
+      <div class="nav-tab" role="tab">Coming Soon</div>
     </nav>
+
     <main class="app-list">
       <div class="app-entry" id="yanixLauncherEntry">
-        <div class="app-header" onclick="toggleSection(this)">
+        <div class="app-header" onclick="toggleDescription(this)">
           <div class="app-identity">
-            <img src="https://nikoyandere.github.io/logo.png" alt="Yanix Launcher Icon" class="launcher-icon" />
+            <img src="https://nikoyandere.github.io/logo.png" alt="Yanix Icon" class="launcher-icon" />
             <span class="launcher-name">Yanix Launcher</span>
           </div>
           <div class="app-meta-actions">
@@ -232,47 +256,65 @@
         </div>
         <section class="command-section-collapsible">
           <h3>Description</h3>
-          <p>The Yanix Launcher runs Yandere Simulator on Linux using WINE. Requires WINE 8.0+. To fix missing letters: <code>winetricks allfonts</code>.</p>
-          <h3>Install Commands</h3>
-          <div class="command-block" id="commandTextYanix">ucn add-repo https://nikoyandere.github.io/UcnHub && ucn install --from-repos org.nikoyandere.yanix-launcher</div>
-          <button class="copy-button" onclick="copyCommandContent('commandTextYanix')">Copy Install Command</button>
+          <p>The Yanix Launcher runs Yandere Simulator on Linux via WINE 8.0+. Fullscreen bugs fixed in Unity 6 build; for missing letters run <code>winetricks allfonts</code>. Further fixes require upstream support.</p>
+          <h3>Install Command</h3>
+          <div class="command-block" id="commandTextYanix">
+ucn add-repo https://nikoyandere.github.io/UcnHub  
+ucn install --from-repos org.nikoyandere.yanix-launcher
+          </div>
+          <button class="copy-button" onclick="copyCommand('commandTextYanix')">Copy Command</button>
         </section>
       </div>
     </main>
-  </div>  <script>
-    const commandsTemplate = name =>
-      `git clone https://github.com/NikoYandere/ucn-package-manager
-cd ucn-package-manager
-sudo mv ucn-package-manager.py /usr/local/bin/ucn && chmod +x /usr/local/bin/ucn
+  </div>
 
-# test packages:
-ucn add-repo https://nikoyandere.github.io/UcnHub
-ucn install --from-repos org.nikoyandere.yanix-launcher`;
-
-    function openModal() {
-      document.getElementById('setupModal').classList.add('show');
-      setTimeout(closeModal, 10000);
-      setModalContent('All Distros');
+  <script>
+    // Description toggle
+    function toggleDescription(header) {
+      const arrow = header.querySelector('.dropdown-toggle');
+      const section = header.nextElementSibling;
+      section.classList.toggle('show');
+      arrow.classList.toggle('open');
+      arrow.textContent = section.classList.contains('show')
+        ? 'Hide Description ▲'
+        : 'View Description ▼';
     }
-    function setModalContent(distro) {
-      document.getElementById('modalTitle').textContent = `Setup for ${distro}`;
-      document.getElementById('modalCommands').textContent = commandsTemplate(distro);
+    function copyCommand(id) {
+      navigator.clipboard.writeText(document.getElementById(id).textContent.trim())
+        .then(() => alert('Copied to clipboard!'));
+    }
+
+    // Modal control
+    let autoCloseTimer;
+    function openModal() {
+      clearTimeout(autoCloseTimer);
+      document.getElementById('setupModal').classList.add('show');
+      document.getElementById('modalCommands').style.display = 'none';
+      // auto-close after 10s
+      autoCloseTimer = setTimeout(closeModal, 10000);
     }
     function closeModal() {
       document.getElementById('setupModal').classList.remove('show');
+      clearTimeout(autoCloseTimer);
     }
 
-    function toggleSection(header) {
-      const arrow = header.querySelector('.dropdown-toggle');
-      const section = header.nextElementSibling;
-      if (!arrow || !section) return;
-      section.classList.toggle('show');
-      arrow.textContent = section.classList.contains('show') ? 'Hide Description ▲' : 'View Description ▼';
+    function showCommands(distro) {
+      const cmds = [
+        'git clone https://github.com/NikoYandere/ucn-package-manager',
+        'cd ucn-package-manager',
+        'sudo mv ucn-package-manager.py /usr/local/bin/ucn && chmod +x /usr/local/bin/ucn',
+        '',
+        '# to test packages:',
+        'ucn add-repo https://nikoyandere.github.io/UcnHub',
+        'ucn install --from-repos org.nikoyandere.yanix-launcher'
+      ].join('\n');
+      const container = document.getElementById('modalCommands');
+      container.textContent = '# Setup for ' + distro + '\n' + cmds;
+      container.style.display = 'block';
+      // reset auto-close countdown on interaction
+      clearTimeout(autoCloseTimer);
+      autoCloseTimer = setTimeout(closeModal, 10000);
     }
-
-    function copyCommandContent(id) {
-      navigator.clipboard.writeText(document.getElementById(id).textContent)
-        .then(() => alert('Copied to clipboard!'));
-    }
-  </script></body>
+  </script>
+</body>
 </html>
