@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -38,7 +38,6 @@
       line-height: 1;
     }
 
-  
     .featured-app-banner {
       position: relative;
       background: linear-gradient(90deg, #ff002b, #ff006e);
@@ -318,19 +317,42 @@
             <span class="launcher-name">Yanix Launcher</span>
           </div>
           <div class="app-meta-actions">
-            <span class="launcher-size">1 MB</span>
+            <span class="launcher-size">1&nbsp;MB</span>
             <span class="dropdown-toggle">View Description ▼</span>
           </div>
         </div>
         <section class="command-section-collapsible">
           <h3>Description</h3>
-          <p>The Yanix Launcher runs Yandere Simulator on Linux via WINE 8.0+. Fullscreen bugs fixed in Unity 6 build; for missing letters run <code>winetricks allfonts</code>. Further fixes require upstream support.</p>
+          <p>The Yanix Launcher runs Yandere Simulator on Linux via WINE&nbsp;8.0+. Fullscreen bugs fixed in Unity&nbsp;6 build; for missing letters run <code>winetricks allfonts</code>. Further fixes require upstream support.</p>
           <h3>Install Command</h3>
           <div class="command-block" id="commandTextYanix">
-ucn add-repo https://nikoyandere.github.io/UcnHub  
+ucn add-repo https://nikoyandere.github.io/UcnHub
 ucn install --from-repos org.nikoyandere.yanix-launcher
           </div>
           <button class="copy-button" onclick="copyCommand('commandTextYanix')">Copy Command</button>
+        </section>
+      </div>
+
+      <div class="app-entry" id="hiskoBrowserEntry">
+        <div class="app-header" onclick="toggleDescription(this)">
+          <div class="app-identity">
+            <img src="Hisko Browser.jpg" alt="Hisko Browser Icon" class="launcher-icon">
+            <span class="launcher-name">Hisko Browser</span>
+          </div>
+          <div class="app-meta-actions">
+            <span class="launcher-size">1&nbsp;MB</span>
+            <span class="dropdown-toggle">View Description ▼</span>
+          </div>
+        </div>
+        <section class="command-section-collapsible">
+          <h3>Description</h3>
+          <p>Hisko Browser is a fast and secure web browser designed for daily use. It offers a clean interface and essential features for a smooth Browse experience.</p>
+          <h3>Install Command</h3>
+          <div class="command-block" id="commandTextHisko">
+ucn add-repo https://nikoyandere.github.io/UcnHub
+ucn install org.hisko.hisko-browser
+          </div>
+          <button class="copy-button" onclick="copyCommand('commandTextHisko')">Copy Command</button>
         </section>
       </div>
     </main>
